@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    container_name: sqlserver_container
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "minhasenhasupersecreta"
+      MSSQL_PID: "Express"
+      MSSQL_TCP_PORT: "1433"
+    volumes:
+      - sqlserver:/data/sqlserver
+    ports:
+      - "1433:1433"
+    networks:
+      - sqlserver
+    restart: unless-stopped
+
+networks:
+  sqlserver:
+    driver: bridge
+
+volumes:
+  sqlserver:

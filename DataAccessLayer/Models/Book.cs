@@ -38,7 +38,7 @@ namespace LibraryApi.DataAccessLayer.Models
 
         public void SetIsbn(string isbn)
         {
-            this.Isbn = Isbn;
+            this.Isbn = isbn;
         }
     }
 }
